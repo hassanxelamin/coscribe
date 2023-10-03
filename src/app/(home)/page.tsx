@@ -1,21 +1,16 @@
-import {
-  Navbar,
-  Hero,
-  Features,
-  // Prices,
-  Footer,
-} from '@/src/components/layout';
+import { Navbar, Hero } from '@/src/components/layout';
+import MaxWidthWrapper from '@/src/components/max-width-wrapper';
 
 export default async function Home() {
   return (
-    <main className="flex flex-col items-center w-screen h-screen p-[1rem] bg-black">
-      <div className='flex flex-col items-center bg-white w-full h-full rounded-[25px]'>
+    <MaxWidthWrapper className="flex flex-col items-center w-screen min-h-screen bg-black">
+      <div className="flex flex-col items-center bg-white max-w-fit max-h-full rounded-[25px]">
         <Navbar />
-        {/* <Hero /> */}
+        <Hero />
         {/* <Features /> */}
         {/* <Prices /> */}
         {/* <Footer /> */}
       </div>
-    </main>
+    </MaxWidthWrapper>
   );
 }

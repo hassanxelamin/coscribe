@@ -23,7 +23,7 @@ export default function RootLayout({
     <ClerkProvider>
       <SessionListener />
       <html lang="en">
-        <body className="font-mona text-[16px] bg-primary-color">
+        <body className="min-h-screen antialiased font-mona text-[16px] bg-primary-color">
           {children}
         </body>
       </html>

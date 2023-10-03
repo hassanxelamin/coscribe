@@ -15,7 +15,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 // import USA from '../../assets/svg/USA.svg';
 import { EmailCodeFactor } from '@clerk/types';
 import { Button } from '@/src/components/ui/button/button-auth';
-import { ErrorMessage } from '@/src/components/ui/error-states/error';
+// import { ErrorMessage } from '@/src/components/ui/error-states/error';
 import { Input } from '@/src/components/ui/inputs/input';
 import { Title } from '@/src/components/auth/common/title';
 

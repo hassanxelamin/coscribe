@@ -63,7 +63,10 @@ const SignUpCode = ({ emailAddress, onDone }: SignUpCodeProps) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(verifySignUpCode)} className="flex flex-col text-center mt-[1rem]">
+    <form
+      onSubmit={handleSubmit(verifySignUpCode)}
+      className="flex flex-col text-center mt-[1rem]"
+    >
       <VerifyCodeNotice
         onResendClick={resendSignUpCode}
         emailAddress={emailAddress}

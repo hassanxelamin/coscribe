@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
       where: { clerkUserId: clerkSessionId },
     });
 
-    console.log(user)
+    console.log(user);
 
     if (!user) {
       throw new Error('User missing');

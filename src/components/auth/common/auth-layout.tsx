@@ -8,9 +8,7 @@ interface AuthLayoutProps {
 const AuthLayout = ({ children }: AuthLayoutProps) => {
   return (
     <div className="w-screen h-screen flex">
-      <div className="bg-[#f5f5f5] w-[50%] h-full">
-        {/* <Promotion /> */}
-      </div>
+      <div className="bg-[#f5f5f5] w-[50%] h-full">{/* <Promotion /> */}</div>
       <div className="flex items-center justify-center w-[50%] h-full">
         {children}
       </div>

@@ -15,6 +15,11 @@ interface SignInCodeProps {
   onDone: (sessionId: string) => void;
 }
 
+interface EmailCodeFactor {
+  emailAddressId: string;
+  // ... other properties specific to EmailCodeFactor
+}
+
 const SignInCode = ({ emailAddress, onDone }: SignInCodeProps) => {
   const { isLoaded, signIn } = useSignIn();
   const [isLoading, setIsLoading] = React.useState(false);
@@ -34,15 +39,15 @@ const SignInCode = ({ emailAddress, onDone }: SignInCodeProps) => {
     }
     const emailCodeFactor = signIn.supportedFirstFactors.find(
       (factor) => factor.strategy === 'email_code'
-    );
-    console.log(emailCodeFactor)
+    ) as EmailCodeFactor;
+
     // try {
-      if (emailCodeFactor) {
-        await signIn.prepareFirstFactor({
-          strategy: 'email_code',
-          emailAddressId: emailCodeFactor.emailAddressId,
-        });
-      }
+    if (emailCodeFactor) {
+      await signIn.prepareFirstFactor({
+        strategy: 'email_code',
+        emailAddressId: emailCodeFactor.emailAddressId,
+      });
+    }
     // } catch (error) {
     //   if (error.response && error.response.data) {
     //     console.log('Error Response Data:', error.response.data);
@@ -85,7 +90,10 @@ const SignInCode = ({ emailAddress, onDone }: SignInCodeProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(verifySignInCode)} className="flex flex-col text-center mt-[1rem]">
+    <form
+      onSubmit={handleSubmit(verifySignInCode)}
+      className="flex flex-col text-center mt-[1rem]"
+    >
       <VerifyCodeNotice
         onResendClick={resendSignUpCode}
         emailAddress={emailAddress}
